@@ -1,8 +1,13 @@
 import React from 'react';
-import { withFirebase } from '../Firebase';
+import { withAuthorization } from '../Session';
 
 const HomePage = () => (
-  <div>This is your home page upon signing in.</div>
+  <div>
+    <h1>HomePage</h1>
+    <p>The Home Page is accessible by every signed in user.</p>
+  </div>
 );
 
-export default withFirebase(HomePage);
+const condition = authUser => !!authUser;
+
+export default withAuthorization(condition)(HomePage);

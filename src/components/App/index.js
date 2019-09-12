@@ -29,7 +29,7 @@ const App = () => (
         <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
         <Route path={ROUTES.HOME} component={HomePage} />
         <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-        {/* <Route path={ROUTES.ADMIN} component={AdminPage} /> */}
+        <Route path={ROUTES.ADMIN} component={AdminPage} />
       </div>
     </Router>
 );

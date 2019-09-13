@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Logo from '../../assets/images/logo3.png';
 
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
@@ -16,19 +17,22 @@ const Navigation = () => (
 );
 
 const NavigationAuth = () => (
-  <div>
+  <div className="navigation">
+    <div className="logoImage">
+      <img src={Logo} alt="MeuTube Logo"></img>
+    </div>
     <ul>
       <li>
-        <Link to={ROUTES.LANDING}>Landing</Link>
+        <Link to={ROUTES.LANDING} className="a">Landing</Link>
       </li>
       <li>
-        <Link to={ROUTES.HOME}>Home</Link>
+        <Link to={ROUTES.HOME} className="a">Home</Link>
       </li>
       <li>
-        <Link to={ROUTES.ACCOUNT}>Account</Link>
+        <Link to={ROUTES.ACCOUNT} className="a">Account</Link>
       </li>
       <li>
-        <Link to={ROUTES.ADMIN}>Admin</Link>
+        <Link to={ROUTES.ADMIN} className="a">Admin</Link>
       </li>
         <SignOutButton />
     </ul>
@@ -36,15 +40,20 @@ const NavigationAuth = () => (
 );
 
 const NavigationNonAuth = () => (
-  <div>
+  <div className="navigation">
+    <div className="logoImage">
+      <img src={Logo} alt="MeuTube Logo"></img>
+    </div>
+    <div className="navLinks">
     <ul>
       <li>
-        <Link to={ROUTES.LANDING}>Landing</Link>
+        <Link to={ROUTES.LANDING} className="a">Landing</Link>
       </li>
       <li>
-        <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+        <Link to={ROUTES.SIGN_IN} className="a">Sign In</Link>
       </li>
     </ul>
+    </div>
   </div>
 )
 

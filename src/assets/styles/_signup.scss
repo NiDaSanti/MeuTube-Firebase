@@ -1,0 +1,44 @@
+.signIn {
+    background-image: linear-gradient($orange, $yellow);
+    padding: 10em 0;
+    
+    .signUpContent {
+
+        h1 {
+            color: $smoke;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        input[name="email"] {
+            font-size: 1.25em;
+            display: block;
+            float: center;
+            margin: 0 auto 20px auto;
+        }
+
+        input[name="password"] {
+            font-size: 1.25em;
+            display: block;
+            float: center;
+            margin: 0 auto 20px auto;
+        }
+
+        button {
+            background-color: $smoke;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1.25em;
+            padding: 10px 30px;
+            margin: 0 42.5%;
+            width: 15%;            
+        }
+
+        p {
+            text-align: center;
+
+        }
+    }
+}

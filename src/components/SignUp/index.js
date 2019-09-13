@@ -7,7 +7,7 @@ import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
 const SignUpPage = () => (
-  <div>
+  <div className="signUpContent">
     <h1>SignUp</h1>
     <FirebaseContext.Consumer>
         {firebase => <SignUpForm firebase={firebase}/>}

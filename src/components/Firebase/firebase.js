@@ -42,8 +42,9 @@ class Firebase {
 
         this.auth = app.auth();
         this.db = app.database();
+
     }
-    // *** Auth API ***
+    // *** Auth API *** //
     doCreateUserWithEmailAndPassword = (email, password) =>
         this.auth.createUserWithEmailAndPassword(email, password);
 
@@ -56,8 +57,39 @@ class Firebase {
 
     doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 
-    // *** User API ***
-    user = uid => this.db.ref('users/${uid}');
+    // *** Merge Auth and DB User API *** //
+    onAuthUserListener = (next, fallback) =>
+        this.auth.onAuthStateChanged(authUser => {
+            if (authUser) {
+                console.log("uID: ", authUser.uid);
+                this.user(authUser.uid)
+                    .once('value')
+                    .then(snapshot => {
+                        console.log(snapshot);
+                        const dbUser = snapshot.val();
+                        
+                        
+                        // default empty roles
+                            // if (!dbUser.roles) {
+                            //     dbUser.roles = {};
+                            // }
+
+                        //merge auth and db user
+                        authUser = {
+                            uid: authUser.uid,
+                            email: authUser.email,
+                            ...dbUser,
+                        };
+
+                        next(authUser);
+                    });
+            } else {
+                fallback();
+            }
+        });
+
+    // *** User API *** //
+    user = uid => this.db.ref(`/users/${uid}`);
 
     users = () => this.db.ref('users');
 }

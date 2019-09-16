@@ -2,21 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo3.png';
 
+import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
-import { AuthUserContext } from '../Session';
+import * as ROLES from '../../constants/roles';
+
 
 const Navigation = () => (
   <div>
     <AuthUserContext.Consumer>
       {authUser =>
-        authUser ? <NavigationAuth /> : <NavigationNonAuth />
+        authUser ? (
+          <NavigationAuth authUser={authUser} /> 
+          ) : (
+          <NavigationNonAuth />
+          )
       }
     </AuthUserContext.Consumer>
   </div>
 );
 
-const NavigationAuth = () => (
+const NavigationAuth = ({ authUser }) => (
   <div className="navigation">
     <div className="logoImage">
       <img src={Logo} alt="MeuTube Logo"></img>
@@ -31,10 +37,14 @@ const NavigationAuth = () => (
       <li>
         <Link to={ROUTES.ACCOUNT} className="a">Account</Link>
       </li>
+        {!!authUser.roles[ROLES.ADMIN] && (
+          <li>
+            <Link to={ROUTES.ADMIN} className="a">Admin</Link>
+          </li>
+        )}
       <li>
-        <Link to={ROUTES.ADMIN} className="a">Admin</Link>
-      </li>
         <SignOutButton />
+      </li>  
     </ul>
   </div>
 );

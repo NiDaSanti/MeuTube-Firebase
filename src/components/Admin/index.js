@@ -39,7 +39,7 @@ class AdminPage extends Component {
     const { users, loading } = this.state;
 
     return (
-      <div>
+      <div className="adminPage">
         <h1>Admin</h1>
           <p>
             The Admin Page is accessible by every signed in admin user.
@@ -54,18 +54,18 @@ class AdminPage extends Component {
 }
 
 const UserList = ({ users }) => (
-    <ul>
+    <ul className="userList">
         {users.map(user => (
             <li key={user.uid}>
                 <span>
                     <strong>ID:</strong> {user.uid}
-                </span> | 
+                </span><br/>
                 <span>
                     <strong> E-Mail:</strong> {user.email}
-                </span> | 
+                </span><br/>
                 <span>
                     <strong> Username:</strong> {user.username}
-                </span>
+                </span><br/><hr/>
             </li>
         ))}
     </ul>

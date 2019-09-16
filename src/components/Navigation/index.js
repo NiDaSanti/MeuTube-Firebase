@@ -23,9 +23,9 @@ const Navigation = () => (
 );
 
 const NavigationAuth = ({ authUser }) => (
-  <div className="navigation">
+  <div className="main-nav">
     <div className="logoImage">
-      <img src={Logo} alt="MeuTube Logo"></img>
+      {/*<img src={Logo} alt="MeuTube Logo"></img>*/}
     </div>
     <ul>
       <li>

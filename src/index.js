@@ -4,6 +4,7 @@ import './index.scss';
 import App from './components/App';
 import Firebase, { FirebaseContext } from './components/Firebase';
 import * as serviceWorker from './serviceWorker';
+require('react-web-vector-icons/fonts');
 
 ReactDOM.render(
     <FirebaseContext.Provider value={new Firebase()}>

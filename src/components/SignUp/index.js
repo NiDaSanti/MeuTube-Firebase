@@ -42,9 +42,10 @@ class SignUpFormBase extends Component {
       this.props.firebase
         .doCreateUserWithEmailAndPassword(email, passwordOne)
         .then(authUser => {
+          console.log(authUser)
           //Create a user in your Firebase realtime database
             return this.props.firebase
-              .user(authUser.user.id)
+              .user(authUser.user.uid)
               .set({
                 username,
                 email,
@@ -56,6 +57,7 @@ class SignUpFormBase extends Component {
             this.props.history.push(ROUTES.HOME);
         })
         .catch(error => {
+          console.log('error', error);
             this.setState({ error });
         });
     

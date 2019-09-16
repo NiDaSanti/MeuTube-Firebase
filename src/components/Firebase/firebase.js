@@ -65,14 +65,14 @@ class Firebase {
                 this.user(authUser.uid)
                     .once('value')
                     .then(snapshot => {
-                        console.log(snapshot);
+                        console.log('snap', snapshot);
                         const dbUser = snapshot.val();
-                        
+                        console.log('dbuser', dbUser);
                         
                         // default empty roles
-                            // if (!dbUser.roles) {
-                            //     dbUser.roles = {};
-                            // }
+                        if (!dbUser.roles) {
+                            dbUser.roles = {};
+                        }
 
                         //merge auth and db user
                         authUser = {

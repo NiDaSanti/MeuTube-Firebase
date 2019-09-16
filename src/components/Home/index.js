@@ -1,12 +1,11 @@
 import React from 'react';
 import { withAuthorization } from '../Session';
-import Search from '../Search';
+
 
 const HomePage = () => (
-  <div>
-    <h1>HomePage</h1>
-    <Search />
-    <p>The Home Page is accessible by every signed in user.</p>
+  <div className = "this-random-header">
+    <h1 className = "play-with-this">HomePage</h1>
+    <p className = "middle-for-now">The Home Page is accessible by every signed in user.</p>
   </div>
 );
 

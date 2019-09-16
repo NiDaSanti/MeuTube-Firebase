@@ -1,56 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Jura&display=swap');
-/* font-family: 'Jura', sans-serif; */
-
-/*.main-nav {
-	position: absolute;
-    width: 100%;
-    height: 95px;
-    left: 0px;
-    top: 0px;
-    background: #343434;
-}
-
-.main-nav ul {
-	list-style: none;
-	position: absolute;
-	display: flex;
-	font-size: 20px;
-	font-family: American Typewriter;
-	align-items: center;
-	//align-text: center;
-	text-decoration: none;
-	margin-left: 51%;
-}
-
-.main-nav ul li {
-	margin: 0.5em;
-}
-
-.main-nav ul li a {
-	color: white;
-	text-decoration: none;
-}
-
-button {
-	width: 13rem;
-	height: 30px;
-	border-radius: 20px;
-    color: black;
-    background-color: lightgrey;
-    opacity: 0.4;
-    font-size: 17px;
-    font-family: American Typewriter;
-} */
-
-body {
+/*body {
 	display: grid;
 	grid-area: auto;
 	margin-top: 9em;
-	background-image: linear-gradient($orange, $yellow);
-	width: auto;
-}
+	//background-image: linear-gradient($orange, $yellow);
+	width: auto; 
+} */
 
-.this-random-header {
+/*.this-random-header {
 	position: absolute;
 	background-color: #343434;
 	padding: 25px;
@@ -62,7 +19,7 @@ body {
 	animation-duration: 5s;
 	animation-iteration-count: infinite;
 	z-index: -1;
-}
+} 
 // This is trials
 @keyframes tryThisAnimation {
   0%   {background-color: orange;}
@@ -88,7 +45,55 @@ body {
 	text-align: center;
 	margin-top: 3em;
 	margin-bottom: 3em;
+} */
+
+body {
+    height: 30em;
+    display: grid;
+    //grid-template-rows: auto auto auto;
+    margin-top: 20rem;
+    background-image: linear-gradient($orange, $yellow);
+    overflow: hidden;
 }
 
-//hr {
-//}
+.this-random-header {
+	position: absolute;
+	background-color: #343434;
+	padding: 25px;
+	margin-left: 25%;
+    margin-right: 25%;
+    //margin-top: 7em;
+	//border-radius: 155px;
+	box-shadow: 6px 6px 27px;
+	animation-name: tryThisAnimation;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	z-index: -1;
+} 
+
+// This is trials
+@keyframes tryThisAnimation {
+    0%   {background-color: orange;}
+    20%  {background-color: #343434;}
+    40%  {background-color: orange;}
+    60%  {background-color: #343434;}
+    80% {background-color: orange;}
+    100% {background-color: #343434;}
+  }
+  
+  .play-with-this {
+      font-family: 'Jura', sans-serif;
+      font-size: 40px;
+      color: white;
+      text-align: center;
+      margin-top: 1em;
+  }
+  
+  .middle-for-now {
+      font-family: 'Jura', sans-serif;
+      font-size: 25px;
+      color: white;
+      text-align: center;
+      margin-top: 3em;
+      margin-bottom: 3em;
+  } 

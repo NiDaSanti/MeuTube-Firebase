@@ -1,0 +1,36 @@
+.navigation {
+    background-color: #343434;
+    padding: 5px;
+
+    img {
+        width: 80px;
+        height: auto;
+        float: left;
+        margin: 10px;
+        border-radius: 15px;
+        background-image: radial-gradient($orange 10%, $yellow);
+    }
+    
+    .navLinks {
+        align-content: right;
+        text-align: right;
+        height: 80px;
+        padding: 10px 0;
+    }
+    
+    ul {
+        
+    }
+
+    li {
+        list-style-type: none;
+        display: inline;
+        padding: 0 15px 0 0;
+    }
+
+    .a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.5em;
+    }
+}

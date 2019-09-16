@@ -1,0 +1,18 @@
+Features to Include in Music App
+
+List Music Files
+Allow for sorting (by artist, genre, title)
+Display album art
+Have a music player 
+    (play, pause, rewind/restart, forward/skip)
+Add files to database
+Delete files from database
+Edit files in database (if name spelled wrong etc.)
+
+Optional features:
+    view waveform
+    create playlists
+    loop/repeat playback features
+    play counts
+    comment on tracks
+    

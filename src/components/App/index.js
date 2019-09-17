@@ -11,8 +11,9 @@ import signIn from '../../containers/SignIn';
 import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import AccountPage from '../Account';
-import AdminPage from '../Admin';
+import Admin from '../../containers/Admin';
 import MusicPlayerPage from '../MusicPlayer'
+
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
@@ -28,7 +29,7 @@ const App = () => (
         <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
         <Route path={ROUTES.HOME} component={HomePage} />
         <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-        <Route path={ROUTES.ADMIN} component={AdminPage} />
+        <Route path={ROUTES.ADMIN} component={Admin} />
         <Route path={ROUTES.MUSIC_PAGE} component={MusicPlayerPage} />
       </div>
     </Router>

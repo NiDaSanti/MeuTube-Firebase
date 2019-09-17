@@ -7,6 +7,7 @@ import * as ROLES from '../../constants/roles';
 
 import Search from '../Search';
 import AddMusic from '../AddMusic';
+import Results from '../Results';
 
 class AdminPage extends Component {
   constructor(props) {
@@ -79,6 +80,8 @@ class AdminPage extends Component {
             <Search 
               onSearchLibrary={this.searchLibrary}
             />
+            <Results results={this.state.results}/>
+
             {loading && <div>Loading ... </div>}
 
             <UserList users={users} />

@@ -1,26 +1,26 @@
 import React from 'react'
 
 class Results extends React.Component {
-    results = (props) => (
-        props.results.map((result) => {
-            console.log("result from mapping: ", result);
-            return result;
-        })
-    )
+    constructor(props) {
+        super(props);
+
+        this.state = {
+        }
+    }
 
     render() {
-        let parsedResults = () => {
-            let length = this.props.length;
-            for (var i = 0; i < length; i++) {
-                this.props.results.map((result) => {
-                    return <div>{result}</div>
-                })
+        const resultList = this.props.results
+        const results = resultList.map((result) => {
+            console.log("one result: ", result);
+            for (var i = 0; i < resultList.length; i++) {
+                const values = Object.values(result);
+                const info = values.join(" | ")
+                return <div>{info}</div>;
             }
-        }
-
+        })
         return(
             <div>
-                {parsedResults()}
+                {results}
             </div>
         )
     }

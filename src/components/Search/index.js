@@ -1,8 +1,6 @@
 import React from 'react'
 import { FontAwesome } from 'react-web-vector-icons';
 
-import Results from '../Results';
-
 class Search extends React.Component {
     constructor(props){
         super(props);
@@ -29,7 +27,7 @@ class Search extends React.Component {
     }
 
     render() {
-        const isResults = this.state.results.length > 0
+        // const isResults = this.state.results.length > 0
 
         return(
             <div className="searchBar">
@@ -48,7 +46,7 @@ class Search extends React.Component {
                     className="searchButton"
                 />
                 </button>
-               {isResults && <Results results={this.state.results} length={this.state.results.length}/>}
+               {/* {isResults && <Results results={this.state.results} length={this.state.results.length}/>} */}
                 <br/>
             </div>
         )

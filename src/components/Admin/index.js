@@ -14,6 +14,9 @@ class AdminPage extends Component {
     this.state = {
       loading: false,
       users: [],
+      library: [],
+      searchEntry: "",
+      results: [],
     };
   }
 
@@ -38,19 +41,44 @@ class AdminPage extends Component {
       this.props.firebase.users().off();
   }
 
+  addMusicChange = (item) => {
+    console.log('adding music', item)
+    let library = this.state.library;
+    library.push(item)
+    this.setState({
+      library: library,
+    })
+  }
 
+  filterIt = (library, searchEntry) => {
+    return library.filter(obj => Object.keys(obj).some(key => obj[key].includes(searchEntry)));
+  }
+
+  searchLibrary = (searchString) => {
+    let library = this.state.library;
+    const results = this.filterIt(library, searchString);
+    this.setState({
+      searchEntry: "",
+      results: results,
+    })
+  }
 
   render() {
     const { users, loading } = this.state;
-
+    console.log("library in Admin component: ", this.state.library);
+    console.log("results are: ", this.state.results)
     return (
       <div className="adminPage">
         <h1>Admin</h1>
           <p>
             The Admin Page is accessible by every signed in admin user.
           </p>
-            <AddMusic />
-            <Search />
+            <AddMusic 
+              onAddMusicChange={this.addMusicChange}
+            />
+            <Search 
+              onSearchLibrary={this.searchLibrary}
+            />
             {loading && <div>Loading ... </div>}
 
             <UserList users={users} />

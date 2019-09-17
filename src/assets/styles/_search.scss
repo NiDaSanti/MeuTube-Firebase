@@ -9,15 +9,15 @@
 }
 
 .searchButtonButton {
-    background-color: transparent;
+    background-color: black;
+    border-radius: 5px;
+    width: 3em;
+    height: 3em;
     border: none;
-    top: -60px;
-    left: 35px;
-    z-index: 1;
+    margin: 1em;
 }
 
 .searchButton {
     top: 10px;
     left: 80px;
-    z-index: 2;
 }

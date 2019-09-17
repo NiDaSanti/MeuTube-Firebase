@@ -6,9 +6,6 @@ class AddMusic extends React.Component {
         super(props);
 
         this.state = {
-            exampleLibrary: [],
-            searchEntry: "",
-            results: [],
             addedItem: {},
             addedSong: "",
             addedArtist: "",
@@ -46,29 +43,19 @@ class AddMusic extends React.Component {
         let addedArtist = this.state.addedArtist;
         let addedAlbum = this.state.addedAlbum;
         let addedLink = this.state.addedYouTubeLink;
+        const song = {
+            addedSong, addedArtist, addedAlbum, addedLink
+        }
+        this.props.onAddMusicChange(song)
         this.setState({
-            addedSong: addedSong,
-            addedArtist: addedArtist,
-            addedAlbum: addedAlbum,
-            addedYouTubeLink: addedLink
+            addedSong: "",
+            addedArtist: "",
+            addedAlbum: "",
+            addedYouTubeLink: ""
         });
-        this.pushMusicToLibrary();
-    }
-
-    pushMusicToLibrary = () => {
-        const entered = {
-            song: this.state.addedSong,
-            artist: this.state.addedArtist,
-            album: this.state.addedAlbum,
-            link: this.state.addedYouTubeLink,
-        };
-        const itemObject = Object.assign(entered);
-        let library = this.state.exampleLibrary;
-        library.push(itemObject);
     }
 
     render() {
-        console.log(this.state.exampleLibrary);
         return(
             <div className="addMusic">
                 <input

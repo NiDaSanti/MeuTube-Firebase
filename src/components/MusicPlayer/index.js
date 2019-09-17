@@ -18,9 +18,5 @@ const MusicPlayer = () => ({
     }
   });
   
-  /* React.render(
-    <MusicPlayer video="mYFaghHyMKc" autoplay="0" rel="0" modest="1" />,
-    document.body 
-  ); */
 console.log(MusicPlayer);
 export default MusicPlayer;

@@ -2,29 +2,6 @@ import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 
-// const prodConfig = {
-//     apiKey: process.env.REACT_APP_PROD_API_KEY,
-//     authDomain: process.env.REACT_APP_PROD_AUTH_DOMAIN,
-//     databaseURL: process.env.REACT_APP_PROD_DATABASE_URL,
-//     projectId: process.env.REACT_APP_PROD_PROJECT_ID,
-//     storageBucket: process.env.REACT_APP_PROD_STORAGE_BUCKET,
-//     messagingSenderId: process.env.REACT_APP_PROD_MESSAGING_SENDER_ID,
-//     appId: process.env.REACT_APP_PROD_APP_ID
-// };
-
-// const devConfig = {
-//     apiKey: process.env.REACT_APP_DEV_API_KEY,
-//     authDomain: process.env.REACT_APP_DEV_AUTH_DOMAIN,
-//     databaseURL: process.env.REACT_APP_DEV_DATABASE_URL,
-//     projectId: process.env.REACT_APP_DEV_PROJECT_ID,
-//     storageBucket: process.env.REACT_APP_DEV_STORAGE_BUCKET,
-//     messagingSenderId: process.env.REACT_APP_DEV_MESSAGING_SENDER_ID,
-//     appId: process.env.REACT_APP_DEV_APP_ID
-// };
-
-// const config =
-//     process.env.NODE_ENV === 'production' ? prodConfig : devConfig;
-
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -37,7 +14,7 @@ const config = {
 
 class Firebase {
     constructor() {
-        console.log(config);
+        // console.log(config);
         app.initializeApp(config);
 
         this.auth = app.auth();
@@ -61,13 +38,13 @@ class Firebase {
     onAuthUserListener = (next, fallback) =>
         this.auth.onAuthStateChanged(authUser => {
             if (authUser) {
-                console.log("uID: ", authUser.uid);
+                // console.log("uID: ", authUser.uid);
                 this.user(authUser.uid)
                     .once('value')
                     .then(snapshot => {
-                        console.log('snap', snapshot);
+                        // console.log('snap', snapshot);
                         const dbUser = snapshot.val();
-                        console.log('dbuser', dbUser);
+                        // console.log('dbuser', dbUser);
                         
                         // default empty roles
                         if (!dbUser.roles) {
@@ -95,3 +72,29 @@ class Firebase {
 }
 
 export default Firebase;
+
+
+
+
+// const prodConfig = {
+//     apiKey: process.env.REACT_APP_PROD_API_KEY,
+//     authDomain: process.env.REACT_APP_PROD_AUTH_DOMAIN,
+//     databaseURL: process.env.REACT_APP_PROD_DATABASE_URL,
+//     projectId: process.env.REACT_APP_PROD_PROJECT_ID,
+//     storageBucket: process.env.REACT_APP_PROD_STORAGE_BUCKET,
+//     messagingSenderId: process.env.REACT_APP_PROD_MESSAGING_SENDER_ID,
+//     appId: process.env.REACT_APP_PROD_APP_ID
+// };
+
+// const devConfig = {
+//     apiKey: process.env.REACT_APP_DEV_API_KEY,
+//     authDomain: process.env.REACT_APP_DEV_AUTH_DOMAIN,
+//     databaseURL: process.env.REACT_APP_DEV_DATABASE_URL,
+//     projectId: process.env.REACT_APP_DEV_PROJECT_ID,
+//     storageBucket: process.env.REACT_APP_DEV_STORAGE_BUCKET,
+//     messagingSenderId: process.env.REACT_APP_DEV_MESSAGING_SENDER_ID,
+//     appId: process.env.REACT_APP_DEV_APP_ID
+// };
+
+// const config =
+//     process.env.NODE_ENV === 'production' ? prodConfig : devConfig;

@@ -1,0 +1,18 @@
+.adminPage {
+    color: $smoke;
+    padding-left: 8%;
+    margin-top: -12em;
+
+    ul {
+        list-style-type: none;
+        font-size: 16pt;
+    }
+
+    hr {
+        border: 1px solid $smoke;
+    }
+
+    .results {
+        height: 150px;
+    }
+}

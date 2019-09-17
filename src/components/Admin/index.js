@@ -5,12 +5,19 @@ import { withFirebase } from '../Firebase';
 import { withAuthorization } from '../Session';
 import * as ROLES from '../../constants/roles';
 
+import Search from '../Search';
+import AddMusic from '../AddMusic';
+import Results from '../Results';
+
 class AdminPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: false,
       users: [],
+      library: [],
+      searchEntry: "",
+      results: [],
     };
   }
 
@@ -35,15 +42,45 @@ class AdminPage extends Component {
       this.props.firebase.users().off();
   }
 
+  addMusicChange = (item) => {
+    console.log('adding music', item)
+    let library = this.state.library;
+    library.push(item)
+    this.setState({
+      library: library,
+    })
+  }
+
+  filterIt = (library, searchEntry) => {
+    return library.filter(obj => Object.keys(obj).some(key => obj[key].includes(searchEntry)));
+  }
+
+  searchLibrary = (searchString) => {
+    let library = this.state.library;
+    const results = this.filterIt(library, searchString);
+    this.setState({
+      searchEntry: "",
+      results: results,
+    })
+  }
+
   render() {
     const { users, loading } = this.state;
-
+    console.log("library in Admin component: ", this.state.library);
+    console.log("results are: ", this.state.results)
     return (
-      <div>
+      <div className="adminPage">
         <h1>Admin</h1>
           <p>
             The Admin Page is accessible by every signed in admin user.
           </p>
+            <AddMusic 
+              onAddMusicChange={this.addMusicChange}
+            />
+            <Search 
+              onSearchLibrary={this.searchLibrary}
+            />
+            <Results results={this.state.results}/>
 
             {loading && <div>Loading ... </div>}
 
@@ -54,18 +91,19 @@ class AdminPage extends Component {
 }
 
 const UserList = ({ users }) => (
-    <ul>
+    <ul className="userList">
+      
         {users.map(user => (
             <li key={user.uid}>
                 <span>
                     <strong>ID:</strong> {user.uid}
-                </span> | 
+                </span><br/>
                 <span>
                     <strong> E-Mail:</strong> {user.email}
-                </span> | 
+                </span><br/>
                 <span>
                     <strong> Username:</strong> {user.username}
-                </span>
+                </span><br/><hr/>
             </li>
         ))}
     </ul>
@@ -77,4 +115,4 @@ const condition = authUser =>
 export default compose(
     withAuthorization(condition),
     withFirebase,
-)(AdminPage);
+  )(AdminPage);

@@ -4,7 +4,6 @@ import { FontAwesome } from 'react-web-vector-icons';
 class Search extends React.Component {
     constructor(props){
         super(props);
-
         this.state = {
             searchEntry: "",
             results: [],
@@ -54,4 +53,4 @@ class Search extends React.Component {
 
 }
 
-export default Search
+export default Search;

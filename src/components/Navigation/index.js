@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/images/logo3.png';
+//import Logo from '../../assets/images/logo3.png';
 
 import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
@@ -29,6 +29,9 @@ const NavigationAuth = ({ authUser }) => (
     </div>
     <ul>
       <li>
+        <Link to={ROUTES.MUSIC_PAGE} className="a">Player</Link>
+      </li>
+      <li>
         <Link to={ROUTES.LANDING} className="a">Landing</Link>
       </li>
       <li>
@@ -52,7 +55,7 @@ const NavigationAuth = ({ authUser }) => (
 const NavigationNonAuth = () => (
   <div className="navigation">
     <div className="logoImage">
-      <img src={Logo} alt="MeuTube Logo"></img>
+      {/*<img src={Logo} alt="MeuTube Logo"></img>*/}
     </div>
     <div className="navLinks">
     <ul>

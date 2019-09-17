@@ -1,4 +1,4 @@
-.searchBar {
+.addMusic {
     input {
         padding: 10px;
         border-radius: 20px;
@@ -8,16 +8,16 @@
     }
 }
 
-.searchButtonButton {
-    background-color: transparent;
+.addButtonButton {
+    display: block;
+    width: 3em;
+    height: 3em;
+    background-color: black;
     border: none;
-    top: -60px;
-    left: 35px;
-    z-index: 1;
+    border-radius: 5px;
 }
 
-.searchButton {
+.addButton {
     top: 10px;
     left: 80px;
-    z-index: 2;
 }

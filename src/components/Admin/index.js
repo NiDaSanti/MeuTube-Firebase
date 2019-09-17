@@ -5,6 +5,9 @@ import { withFirebase } from '../Firebase';
 import { withAuthorization } from '../Session';
 import * as ROLES from '../../constants/roles';
 
+import Search from '../Search';
+import AddMusic from '../AddMusic';
+
 class AdminPage extends Component {
   constructor(props) {
     super(props);
@@ -35,6 +38,8 @@ class AdminPage extends Component {
       this.props.firebase.users().off();
   }
 
+
+
   render() {
     const { users, loading } = this.state;
 
@@ -44,7 +49,8 @@ class AdminPage extends Component {
           <p>
             The Admin Page is accessible by every signed in admin user.
           </p>
-
+            <AddMusic />
+            <Search />
             {loading && <div>Loading ... </div>}
 
             <UserList users={users} />
@@ -55,6 +61,7 @@ class AdminPage extends Component {
 
 const UserList = ({ users }) => (
     <ul className="userList">
+      
         {users.map(user => (
             <li key={user.uid}>
                 <span>
@@ -77,4 +84,4 @@ const condition = authUser =>
 export default compose(
     withAuthorization(condition),
     withFirebase,
-)(AdminPage);
+  )(AdminPage);

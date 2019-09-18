@@ -92,7 +92,6 @@ class AddMusic extends React.Component {
                     color='white'
                     size={35}
                     className="addButton"
-                    onClick={this.addMusicToLibrary}
                 />
                 </button>
 

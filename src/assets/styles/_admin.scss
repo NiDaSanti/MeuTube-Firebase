@@ -1,7 +1,6 @@
 .adminPage {
     color: $smoke;
-    padding-left: 8%;
-    margin-top: -12em;
+    
 
     ul {
         list-style-type: none;
@@ -15,4 +14,8 @@
     .results {
         height: 150px;
     }
+}
+
+body {
+    display: block;
 }

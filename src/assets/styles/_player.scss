@@ -1,7 +1,13 @@
     
 .container {
-    box-shadow: 4px -1px 13px whitesmoke;
+    position: absolute;
     width: 50%;
-    height: 21rem;
-    margin: auto;
+    height: 45%;
+    margin-top: 12%;
+    margin-left: 17.7%;
+    padding: 5%;
+    border-radius: 13px;
+    background-image: url(../images/concert.jpg);
+    background-position: center;
+    background-size: cover ;
 }

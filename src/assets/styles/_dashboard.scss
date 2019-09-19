@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Jura&display=swap');
 
 body {
-    height: 30em;
-    display: grid;
+    height: 54em;
+    //display: grid;
     //grid-template-rows: auto auto auto;
-    margin-top: 20rem;
+    //margin-top: 20rem;
     background-image: linear-gradient($orange, $yellow);
-    // overflow: hidden;
+     overflow: hidden;
 }
 
 .this-random-header {
@@ -15,8 +15,9 @@ body {
 	padding: 25px;
 	margin-left: 25%;
     margin-right: 25%;
-    //margin-top: 7em;
-	//border-radius: 155px;
+    margin-top: 31%;
+    width: 50%;
+    height: auto;
 	box-shadow: 6px 6px 27px;
 	animation-name: tryThisAnimation;
 	animation-duration: 5s;

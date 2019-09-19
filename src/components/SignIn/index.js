@@ -56,8 +56,8 @@ class SignInFormBase extends Component {
           value={email}
           onChange={this.onChange}
           type="text"
-          placeholder="Email Address"
-        />
+          placeholder="Email Address" 
+        /> 
         <input
           name="password"
           value={password}

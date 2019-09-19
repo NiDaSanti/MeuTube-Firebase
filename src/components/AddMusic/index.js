@@ -6,83 +6,84 @@ class AddMusic extends React.Component {
         super(props);
 
         this.state = {
-            addedItem: {},
-            addedSong: "",
-            addedArtist: "",
-            addedAlbum: "",
-            addedYouTubeLink: "",
+            library: this.props.library,
+            item: {},
+            song: "",
+            artist: "",
+            album: "",
+            link: "",
         }
     }
 
     handleAddSong = (e) => {
         this.setState({
-            addedSong: e.target.value
+            song: e.target.value
         });
     }
 
     handleAddArtist = (e) => {
         this.setState({
-            addedArtist: e.target.value
+            artist: e.target.value
         });
     }
 
     handleAddAlbum = (e) => {
         this.setState({
-            addedAlbum: e.target.value
+            album: e.target.value
         });
     }
 
     handleAddLink = (e) => {
         this.setState({
-            addedYouTubeLink: e.target.value
+            link: e.target.value
         });
     }
 
     addMusicToLibrary = (e) => {
-        let addedSong = this.state.addedSong;
-        let addedArtist = this.state.addedArtist;
-        let addedAlbum = this.state.addedAlbum;
-        let addedLink = this.state.addedYouTubeLink;
-        const song = {
-            addedSong, addedArtist, addedAlbum, addedLink
+        let song = this.state.song;
+        let artist = this.state.artist;
+        let album = this.state.album;
+        let link = this.state.link;
+        const item = {
+            song, artist, album, link
         }
-        this.props.onAddMusicChange(song)
+        this.props.onAddMusicChange(item)
         this.setState({
-            addedSong: "",
-            addedArtist: "",
-            addedAlbum: "",
-            addedYouTubeLink: ""
+            song: "",
+            artist: "",
+            album: "",
+            link: ""
         });
     }
 
     render() {
         return(
-            <div className="addMusic">
+            <div className="addMusicInputs">
                 <input
                     type="text"
                     name="song"
-                    value={this.state.addedSong}
+                    value={this.state.song}
                     onChange={this.handleAddSong}
                     placeholder="Song Title"
                 /><br/>
                 <input
                     type="text"
                     name="artist"
-                    value={this.state.addedArtist}
+                    value={this.state.artist}
                     onChange={this.handleAddArtist}
                     placeholder="Artist"
                 /><br/>
                 <input
                     type="text"
                     name="album"
-                    value={this.state.addedAlbum}
+                    value={this.state.album}
                     onChange={this.handleAddAlbum}
                     placeholder="Album"
                 /><br/>
                 <input
                     type="text"
                     name="youTubeLink"
-                    value={this.state.addedYouTubeLink}
+                    value={this.state.link}
                     onChange={this.handleAddLink}
                     placeholder="YouTube Link"
                 /><br/>

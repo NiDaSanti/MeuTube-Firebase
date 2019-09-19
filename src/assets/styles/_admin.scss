@@ -1,6 +1,7 @@
 .adminPage {
     color: $smoke;
-    
+    margin: 0 5%;
+    width: 90%;
 
     ul {
         list-style-type: none;
@@ -11,11 +12,7 @@
         border: 1px solid $smoke;
     }
 
-    .results {
-        height: 150px;
+    .userList {
+        width: 90%;
     }
-}
-
-body {
-    display: block;
 }

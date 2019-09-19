@@ -5,10 +5,6 @@ import { withFirebase } from '../Firebase';
 import { withAuthorization } from '../Session';
 import * as ROLES from '../../constants/roles';
 
-import Search from '../Search';
-import AddMusic from '../AddMusic';
-import Results from '../Results';
-
 class AdminPage extends Component {
   constructor(props) {
     super(props);
@@ -42,28 +38,6 @@ class AdminPage extends Component {
       this.props.firebase.users().off();
   }
 
-  addMusicChange = (item) => {
-    console.log('adding music', item)
-    let library = this.state.library;
-    library.push(item)
-    this.setState({
-      library: library,
-    })
-  }
-
-  filterIt = (library, searchEntry) => {
-    return library.filter(obj => Object.keys(obj).some(key => obj[key].includes(searchEntry)));
-  }
-
-  searchLibrary = (searchString) => {
-    let library = this.state.library;
-    const results = this.filterIt(library, searchString);
-    this.setState({
-      searchEntry: "",
-      results: results,
-    })
-  }
-
   render() {
     const { users, loading } = this.state;
     console.log("library in Admin component: ", this.state.library);
@@ -72,19 +46,12 @@ class AdminPage extends Component {
       <div className="adminPage">
         <h1>Admin</h1>
           <p>
-            The Admin Page is accessible by every signed in admin user.
+            You are an Admin on this App.  Below displays all the users of the App.
           </p>
-            <AddMusic 
-              onAddMusicChange={this.addMusicChange}
-            />
-            <Search 
-              onSearchLibrary={this.searchLibrary}
-            />
-            <Results results={this.state.results}/>
 
             {loading && <div>Loading ... </div>}
 
-            <UserList users={users} />
+            <UserList users={users} className="userList"/>
       </div>
     );
   }

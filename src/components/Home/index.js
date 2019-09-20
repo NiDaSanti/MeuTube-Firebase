@@ -5,6 +5,7 @@ import { withFirebase } from '../Firebase';
 import { withAuthorization } from '../Session';
 
 import AddMusic from '../AddMusic';
+import Library from '../Library';
 
 class HomePage extends Component {
   constructor(props) {
@@ -73,9 +74,9 @@ class HomePage extends Component {
         {/* <div className="searchResults">
           <Results results={this.state.results}/>
         </div> */}
-        {/* <div className="library">
+        <div className="library">
           <Library />
-        </div> */}
+        </div>
       </div>
     )
   }

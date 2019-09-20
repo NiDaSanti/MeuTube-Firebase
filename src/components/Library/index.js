@@ -54,7 +54,8 @@ const LibraryList = ({ library }) => (
         {library.map(item => (
             <li key={item.libKey}>
                 <div>
-        <button className="playButtonButton" onClick={<Link to={ROUTES.MUSIC_PAGE} />}>
+                    <Link to={ROUTES.MUSIC_PAGE} link={item.link}>
+                    <button className="playButtonButton">
                         <FontAwesome
                             name="play-circle"
                             color='white'
@@ -62,6 +63,7 @@ const LibraryList = ({ library }) => (
                             className="playButton"
                         />
                     </button>
+                    </Link>
                 </div>
                 <div className="libSong">
                     {item.song}

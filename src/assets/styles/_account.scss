@@ -1,5 +1,54 @@
-.pwordForgetEmailInput:focus + .pwordForgetButton {
-    background-color: white;
-    opacity: 1;
+.accountPage {
+    margin: 2% 5%;
     color: $smoke;
+
+    h1{
+        padding: 2%;
+    }
+
+    .passwordForget {
+        p {
+            font-size: 16pt;
+            color: $smoke;
+            font-weight: bold;
+            border-top: 2px solid $smoke;
+            padding: 2%;
+        }
+
+        .pwordForgetEmailInput {
+            line-height: 20pt;
+            width: 50%;
+            border-radius: 5px;
+            margin: 20px 20px 40px 20px;
+        }
+
+        .pwordForgetEmailInput:focus + .pwordForgetButton {
+            background-color: white;
+            opacity: 1;
+            color: $smoke;
+        }
+    }
+
+    .passwordChange {
+        p {
+            font-size: 16pt;
+            color: $smoke;
+            font-weight: bold;
+            border-top: 2px solid $smoke;
+            padding: 2%;
+        }
+
+        .resetPWordInput {
+            line-height: 20pt;
+            width: 50%;
+            border-radius: 5px;
+            margin: 20px 20px 0 20px;
+        }
+
+        .resetPWordInput:focus + .resetPWord {
+            background-color: white;
+            opacity: 1;
+            color: $smoke;
+        }
+    }
 }

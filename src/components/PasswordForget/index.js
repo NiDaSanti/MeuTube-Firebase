@@ -42,7 +42,8 @@ class PasswordForgetFormBase extends Component {
     const { email, error } = this.state;
     const isInvalid = email === '';
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} className="passwordForget">
+        <p>Enter your email address to have your password reset.  You will receive an email from noreply@react-firebase-authentic with further instructions shortly thereafter.</p>
         <input
           name="email"
           value={this.state.email}

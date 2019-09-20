@@ -35,13 +35,15 @@ class PasswordChangeForm extends Component {
     const isInvalid =
       passwordOne !== passwordTwo || passwordOne === '';
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} className="passwordChange">
+        <p>To change your password, enter your new password, and confirm it, using the following:</p>
         <input
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
           placeholder="New Password"
+          className="resetPWordInput"
         />
 
         <input
@@ -50,9 +52,10 @@ class PasswordChangeForm extends Component {
           onChange={this.onChange}
           type="password"
           placeholder="Confirm New Password"
+          className="resetPWordInput"
         />
 
-        <button disabled={isInvalid} type="submit">
+        <button disabled={isInvalid} type="submit" className="resetPWord">
           Reset My Password
         </button>
 

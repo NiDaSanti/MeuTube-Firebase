@@ -1,12 +1,7 @@
 .adminPage {
     color: $smoke;
-    margin: 0 5%;
+    margin: 2% 5%;
     width: 90%;
-
-    ul {
-        list-style-type: none;
-        font-size: 16pt;
-    }
 
     hr {
         border: 1px solid $smoke;
@@ -14,5 +9,27 @@
 
     .userList {
         width: 90%;
+
+        ul {
+            list-style-type: none;
+            font-size: 16pt;
+        }
+
+        li {
+            display: block;
+            padding: 10px;
+            margin: 10px;
+
+            hr {
+                width: 50%;
+            }
+        }
+
+        li:last-of-type {
+            hr {
+                display: none;
+            }
+        }
+
     }
 }

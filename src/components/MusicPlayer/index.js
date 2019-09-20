@@ -1,27 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { compose } from 'recompose';
+//import { renderComponent } from 'recompose';
+import { withFirebase } from '../Firebase';
 
-class MusicPlayer extends Component {
-    constructor(props){
-      super(props);
-      this.state={
-        authUser: JSON.parse(localStorage.getItem('authUser')),
-      }
-    }
+class MusicPlayer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      library: {},
+      libUserKey: "",
+    };
+  }
 
-    getLink = (library) => {
-      if (library) {
-        return this.state.firebase.library().link;
-      }
-    }
+  componentDidMount() {
+    let libId = "LpAXZv9srxUh5xFZzSA";
+    // let link = this.props.firebase.library(libId).link;
+    console.log(this.props.firebase.library());
+    this.props.firebase.library().on('value', snapshot => {
+        const libraryObject = snapshot.val();
+
+        const libraryList = Object.keys(libraryObject).map(key => ({
+            ...libraryObject[key],
+            libUserKey: key,
+        }));
+
+      this.setState({
+        library: libraryList,
+      });
+    });
+  }
 
     render() {
-      const uid = this.state.authUser.uid;
-
-      const library = this.state.firebase.library().includes(uid);
-
-      const link = this.getLink(library);
-
-      const videoSrc = "https://www.youtube.com/embed/" + link;
+      console.log("the library is: ", this.state.library);
+      let link = this.state.libUserKey;
+      console.log("a link is: ", link);
+      let videoSrc = "https://www.youtube.com/embed/" + link;
           // this.props.video + "?autoplay=" + 
           // this.props.autoplay + "&rel=" + 
           // this.props.rel + "&modestbranding=" +
@@ -34,14 +47,14 @@ class MusicPlayer extends Component {
             width="100%" 
             height="100%"
             src={videoSrc}
-            frameborder="0"
+            frameBorder="0"
             allow='autoplay; encrypted-media'
             allowFullScreen
           />
         </div>
-      )
+      );
     }
-  }
+}
   
 console.log(MusicPlayer);
-export default MusicPlayer;
+export default compose(withFirebase)(MusicPlayer);

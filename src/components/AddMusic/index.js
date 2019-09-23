@@ -59,50 +59,60 @@ class AddMusic extends React.Component {
 
     render() {
         return(
-            <div className="addMusic">
-                <div className="backgroundImage">
-                    <img src={TrebleClef} className="staff"></img>
-                </div>
-                
-                <div className="addMusicInputs">
-                <input
-                    type="text"
-                    name="song"
-                    value={this.state.song}
-                    onChange={this.handleAddSong}
-                    placeholder="Song Title"
-                /><br/>
-                <input
-                    type="text"
-                    name="artist"
-                    value={this.state.artist}
-                    onChange={this.handleAddArtist}
-                    placeholder="Artist"
-                /><br/>
-                <input
-                    type="text"
-                    name="album"
-                    value={this.state.album}
-                    onChange={this.handleAddAlbum}
-                    placeholder="Album"
-                /><br/>
-                <input
-                    type="text"
-                    name="youTubeLink"
-                    value={this.state.link}
-                    onChange={this.handleAddLink}
-                    placeholder="YouTube Link"
-                /><br/>
-                <button onClick={this.addMusicToLibrary} className="addButtonButton" type="button">
-                <FontAwesome
-                    name='plus-circle'
-                    color='white'
-                    size={35}
-                    className="addButton"
-                />
-                </button>
-                </div>
+            <div className="staff">
+                <div className="gutter1"></div>
+                <div className="addMusicInner">
+                    <div className="backgroundImage">
+                        <img src={TrebleClef} className="staff"></img>
+                    </div>
+                    
+                    <div className="addMusicInputs">
+                    <input
+                        type="text"
+                        name="song"
+                        value={this.state.song}
+                        onChange={this.handleAddSong}
+                        placeholder="Song Title"
+                    /><br/>
+                    <input
+                        type="text"
+                        name="artist"
+                        value={this.state.artist}
+                        onChange={this.handleAddArtist}
+                        placeholder="Artist"
+                    /><br/>
+                    <input
+                        type="text"
+                        name="album"
+                        value={this.state.album}
+                        onChange={this.handleAddAlbum}
+                        placeholder="Album"
+                    /><br/>
+                    <input
+                        type="text"
+                        name="youTubeLink"
+                        value={this.state.link}
+                        onChange={this.handleAddLink}
+                        placeholder="YouTube Link"
+                    /><br/>
+                    </div>
 
+                    <div className="plusButton">
+                    <button 
+                        onClick={this.addMusicToLibrary} 
+                        className="addButtonButton" 
+                        type="button"
+                    >
+                    <FontAwesome
+                        name='plus-circle'
+                        color='white'
+                        size={35}
+                        className="addButton"
+                    />
+                    </button>
+                    </div>
+                </div>
+                <div className="gutter2"></div>
             </div>
         )
     }

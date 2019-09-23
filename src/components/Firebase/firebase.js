@@ -73,7 +73,7 @@ class Firebase {
 
     library = () => this.db.ref('library');
 
-    // userLibrary = () => this.db.ref('/users/${uid}/library');
+    libraryItem = uid => this.db.ref(`/library/${uid}`);
 
     // link = () => this.db.ref('/users/${uid}/library/item/link');
 }

@@ -32,6 +32,8 @@ const App = () => (
         <Route path={ROUTES.ACCOUNT} component={AccountPage} />
         <Route path={ROUTES.ADMIN} component={Admin} />
         <Route path={ROUTES.MUSIC_PAGE} component={MusicPlayerPage} />
+        {/* <Route path={ROUTES.LIBRARYITEM} component={MusicPlayerPage} /> */}
+
       </div>
     </Router>
 );

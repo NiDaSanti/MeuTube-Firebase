@@ -13,39 +13,23 @@ class MusicPlayer extends React.Component {
   }
 
   componentDidMount() {
-    // let libId = "LpAXZv9srxUh5xFZzSA";
-    // let link = this.props.firebase.library(libId).link;
-    // console.log(this.props.firebase.library(libId).link);
-    this.props.firebase.library().on('value', snapshot => {
-        const libraryObject = snapshot.val();
-
-        const libraryList = Object.keys(libraryObject).map(key => ({
-            ...libraryObject[key],
-            libUserKey: key,
-        }));
-
-      this.setState({
-        library: libraryList,
-      });
-    });
+    console.log("props: ", this.props);
+    const songId = this.props.match.params.uid;
+    console.log(this.props.firebase.libraryItem(songId));
+    const libraryObject = {};
+    this.props.firebase.libraryItem(songId).once('value', snapshot => {
+          let libraryObject = snapshot.val();
+          console.log(libraryObject);
+          //const linkId = Object.values(libraryObject);
+          this.setState({
+            songLink: libraryObject.link,
+          })
+    })
   }
 
   render() {
-    let library = this.state.library;
-    console.log("library: ", library);
-
-    // let songLink = library[3];
-    // console.log("the object for one song is: ", songLink);
-
-    let link = "S2Cti12XBw4";
-    // this.getTheLink(songLink);
-    // console.log("the link is: ", link);
-    
-    let videoSrc = "https://www.youtube.com/embed/" + link;
-        // this.props.video + "?autoplay=" + 
-        // this.props.autoplay + "&rel=" + 
-        // this.props.rel + "&modestbranding=" +
-        // this.props.modest;
+    let videoSrc = "https://www.youtube.com/embed/" + this.state.songLink;
+        
       return (
         <div className="container">
           <iframe 

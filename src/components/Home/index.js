@@ -75,7 +75,7 @@ class HomePage extends Component {
           <Results results={this.state.results}/>
         </div> */}
         <div className="library">
-          <Library />
+          <Library authUser={this.state.authUser} />
         </div>
       </div>
     )

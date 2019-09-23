@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import Logo from '../../assets/images/logo3.png';
+import Logo from '../../assets/images/logo3.png';
 
 import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
+import Search from '../Search';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
@@ -25,7 +26,7 @@ const Navigation = () => (
 const NavigationAuth = ({ authUser }) => (
   <div className="main-nav">
     <div className="logoImage">
-      {/*<img src={Logo} alt="MeuTube Logo"></img>*/}
+      <img src={Logo} alt="MeuTube Logo"></img>
     </div>
     <ul>
       <li>
@@ -49,13 +50,14 @@ const NavigationAuth = ({ authUser }) => (
         <SignOutButton />
       </li>  
     </ul>
+    <Search />
   </div>
 );
 
 const NavigationNonAuth = () => (
-  <div className="navigation">
+  <div className="main-nav">
     <div className="logoImage">
-      {/*<img src={Logo} alt="MeuTube Logo"></img>*/}
+      <img src={Logo} alt="MeuTube Logo"></img>
     </div>
     <div className="navLinks">
     <ul>

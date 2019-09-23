@@ -36,6 +36,7 @@ class Search extends React.Component {
                     value={this.state.searchEntry}
                     onChange={this.handleChange}
                     placeholder="Search your music..."
+                    className="searchInput"
                 />
                 <button onClick={this.searchUserLibrary} className="searchButtonButton">
                 <FontAwesome

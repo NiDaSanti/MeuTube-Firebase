@@ -1,7 +1,7 @@
 .main-nav {
-	// position: absolute;
+	position: absolute;
     width: 100%;
-    height: 95px;
+    height: 145px;
     left: 0px;
     top: 0px;
     background: #343434;
@@ -10,9 +10,8 @@
 .main-nav ul {
 	list-style: none;
     position: absolute;
-    
+    top: 0;
     right: 0;
-
 	display: flex;
 	font-size: 20px;
 	font-family: American Typewriter;
@@ -49,6 +48,26 @@ button:hover {
 
 .container {
     height: 100%;
+}
+
+.logoImage img {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 8px;
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 5px;
+}
+
+.searchBar {
+    margin: 70px auto 0 auto;
+    width: 50em;
+
+    .searchInput {
+        width: 80%;
+    }
 }
 
 /* @media only screen and (max-width: 400px) {

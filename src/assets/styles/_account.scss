@@ -27,6 +27,10 @@
             opacity: 1;
             color: $smoke;
         }
+
+        .pwordForgetButton:hover {
+            background-color: white;
+        }
     }
 
     .passwordChange {
@@ -49,6 +53,10 @@
             background-color: white;
             opacity: 1;
             color: $smoke;
+        }
+
+        .resetPWord:hover {
+            background-color: white;
         }
     }
 }

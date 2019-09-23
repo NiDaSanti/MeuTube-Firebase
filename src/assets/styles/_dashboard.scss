@@ -5,6 +5,7 @@
 }
 
 .homePage {
+    margin-top: 140px;
 
     h1 {
         color: $smoke;
@@ -13,10 +14,6 @@
     }
 
     .addMusic{
-        .addMusicInputs input {
-            margin: 0.5em 10%;
-        }
-
         h2{
             color: $smoke;
             text-align: center;

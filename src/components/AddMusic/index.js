@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesome } from 'react-web-vector-icons';
+import TrebleClef from '../../assets/images/trebleClef.png';
 
 class AddMusic extends React.Component {
     constructor(props){
@@ -58,7 +59,12 @@ class AddMusic extends React.Component {
 
     render() {
         return(
-            <div className="addMusicInputs">
+            <div className="addMusic">
+                <div className="backgroundImage">
+                    <img src={TrebleClef} className="staff"></img>
+                </div>
+                
+                <div className="addMusicInputs">
                 <input
                     type="text"
                     name="song"
@@ -95,6 +101,7 @@ class AddMusic extends React.Component {
                     className="addButton"
                 />
                 </button>
+                </div>
 
             </div>
         )

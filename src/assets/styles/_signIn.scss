@@ -1,5 +1,4 @@
-/*.signIn {
-    background-image: linear-gradient($orange, $yellow);
+.signIn {
     padding: 10em 0;
     
     .signInContent {
@@ -25,20 +24,45 @@
             margin: 0 auto 20px auto;
         }
 
-        button {
+        p {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .signInButton {
             background-color: $smoke;
             border: none;
             border-radius: 5px;
             color: white;
-            font-size: 1.25em;
-            padding: 10px 30px;
+            font-size: 16pt;   
+            padding: 20px 10px;
+            text-align: center;
+            line-height: 4pt;
+            width: 15%;
             margin: 0 42.5%;
-            width: 15%;            
         }
 
-        p {
-            text-align: center;
+        .signInButton:hover {
+            opacity: 1;
+            color: white;
+        }
 
+        a {
+            font-size: 14pt;
+            font-weight: bold;
+            color: $smoke;
+            padding: 5px;
+        }
+
+        a:hover {
+            background-color: $smoke;
+            border-radius: 5px;
+            color: white;
+            padding: 5px;
+        }
+
+        .signUpText {
+            font-size: 14pt;
         }
     }
-}*/
+}

@@ -19,11 +19,12 @@
 	align-items: center;
 	//align-text: center;
 	text-decoration: none;
-	margin-left: 51%;
+	// margin-left: 51%;
 }
 
 .main-nav ul li {
-	margin: 0.5em;
+    margin: 1.5em 0.75em;
+    display: inline-block;
 }
 
 .main-nav ul li a {
@@ -40,6 +41,14 @@ button {
     opacity: 0.4;
     font-size: 17px;
     font-family: American Typewriter;
+}
+
+button:hover {
+    opacity: 1;
+}
+
+.container {
+    height: 100%;
 }
 
 /* @media only screen and (max-width: 400px) {

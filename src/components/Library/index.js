@@ -4,6 +4,7 @@ import { compose } from 'recompose';
 import { FontAwesome } from 'react-web-vector-icons';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
+import MusicPlayer from '../../containers/MusicPlayerPage';
 
 class Library extends Component {
     constructor(props){
@@ -54,8 +55,14 @@ const LibraryList = ({ library }) => (
         {library.map(item => (
             <li key={item.libKey}>
                 <div>
-                    <Link to={ROUTES.MUSIC_PAGE} link={item.link}>
-                    <button className="playButtonButton">
+                    <button 
+                        className="playButtonButton"
+                        // onClick={
+                            // <Router>
+                            //     <Route path="/item/:item.link" component={MusicPlayer}/>
+                            // </Router>
+                        // }
+                    >
                         <FontAwesome
                             name="play-circle"
                             color='white'
@@ -63,7 +70,6 @@ const LibraryList = ({ library }) => (
                             className="playButton"
                         />
                     </button>
-                    </Link>
                 </div>
                 <div className="libSong">
                     {item.song}

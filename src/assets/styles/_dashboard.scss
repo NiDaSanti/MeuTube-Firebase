@@ -1,21 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Jura&display=swap');
 
-body {
-    background-image: linear-gradient($orange, $yellow);
-    
-    // height: 30em;
-    //display: grid;
-    //grid-template-rows: auto auto auto;
-    //margin-top: 20rem;
-    // background-image: linear-gradient($orange, $yellow);
-    // overflow: hidden;
-}
-
 .whole-page {
     width: 100%;
 }
 
 .homePage {
+
     h1 {
         color: $smoke;
         text-align: center;

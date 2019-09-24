@@ -1,9 +1,16 @@
 li {
     display: grid;
     grid-template-areas:
-        'play song artist album';
+        'play song artist album delete';
     grid-gap: 20px 20px;
-    grid-template-columns: 5% 30% 20% 40%;
+    grid-template-columns: 5% 30% 20% 30% 10%;
+}
+
+.play {
+    grid-area: play;
+    font-size: 20pt;
+    padding: 0.15em 0 0 0.4em;
+    color: $smoke;
 }
 
 .playButtonButton {
@@ -41,4 +48,27 @@ li {
     font-size: 20pt;
     padding-top: 0.15em;
     color: $smoke;
+}
+
+.delete {
+    grid-area: delete;
+    font-size: 20pt;
+    padding-top: 0.15em;
+    color: $smoke;
+}
+
+.delButtonButton {
+    display: block;
+    width: 2.25em;
+    margin: 0.25em 1em;
+    height: 2.25em;
+    background-color: $smoke;
+    border: none;
+    border-radius: 5px;
+    opacity: 1;
+}
+
+.delButton {
+    top: 10px;
+    right: 0px;
 }

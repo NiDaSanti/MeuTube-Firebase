@@ -1,6 +1,5 @@
 import React from 'react';
 import { compose } from 'recompose';
-//import { renderComponent } from 'recompose';
 import { withFirebase } from '../Firebase';
 
 class MusicPlayer extends React.Component {
@@ -16,11 +15,9 @@ class MusicPlayer extends React.Component {
     console.log("props: ", this.props);
     const songId = this.props.match.params.uid;
     console.log(this.props.firebase.libraryItem(songId));
-    const libraryObject = {};
     this.props.firebase.libraryItem(songId).once('value', snapshot => {
           let libraryObject = snapshot.val();
           console.log(libraryObject);
-          //const linkId = Object.values(libraryObject);
           this.setState({
             songLink: libraryObject.link,
           })

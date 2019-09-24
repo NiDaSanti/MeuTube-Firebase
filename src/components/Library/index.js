@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
-import { withFirebase } from '../Firebase';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
+
+import { withFirebase } from '../Firebase';
 import { FontAwesome } from 'react-web-vector-icons';
-import { Link } from 'react-router-dom';
-import * as ROUTES from '../../constants/routes';
-import MusicPlayer from '../../containers/MusicPlayerPage';
-import { withRouter } from 'react-router-dom'
+
 
 class Library extends Component {
     constructor(props){
         super(props);
         this.state= {
+            authUser: JSON.parse(localStorage.getItem('authUser')),
             library: [],
             libkey: "",
+            userLibrary: [],
         }
     }
 
     componentDidMount() {
-        this.props.firebase.library().on('value', snapshot => {
+        console.log(this.state.authUser);
+        this.props.firebase.library().orderByChild('uid').equalTo(this.state.authUser.uid).on('value', snapshot => {
         const libraryObject = snapshot.val();
 
         const libraryList = Object.keys(libraryObject).map(key => ({
@@ -39,8 +41,8 @@ class Library extends Component {
     }
 
     render() {
-
-        const library = this.state.library
+        const library = this.state.library;
+        // const libraryList = library.orderByChild('uid').equalTo(this.state.authUser).map(item => {
         const libraryList = library.map(item => {
             return (
                 <li key={item.libKey}>
@@ -67,9 +69,6 @@ class Library extends Component {
                                 <div className="libAlbum">
                                     {item.album}
                                 </div>
-                                {/* <span className="libLink">
-                                    {item.link}
-                                </span> */}
                             </li>
             )
         })
@@ -78,69 +77,23 @@ class Library extends Component {
         return(
             <div className="library">
                   <ul className="libraryList">
-        <li>
-            <div className="libSong">
-                <strong>Song Title</strong>
-            </div>
-            <div className="libArtist">
-                <strong>Artist</strong>
-            </div>
-            <div className="libAlbum">
-                <strong>Album</strong>
-            </div>
-        </li>
-        {libraryList}
-        </ul>
-                {/* <LibraryList library={this.state.library} className="libraryList" /> */}
+                        <li>
+                            <div className="libSong">
+                                <strong>Song Title</strong>
+                            </div>
+                            <div className="libArtist">
+                                <strong>Artist</strong>
+                            </div>
+                            <div className="libAlbum">
+                                <strong>Album</strong>
+                            </div>
+                        </li>
+                    {libraryList}
+                  </ul>
             </div>
         )
     }
 }
-
-// const LibraryList = ({ library }) => (
-//     <ul className="libraryList">
-//         <li>
-//             <div className="libSong">
-//                 <strong>Song Title</strong>
-//             </div>
-//             <div className="libArtist">
-//                 <strong>Artist</strong>
-//             </div>
-//             <div className="libAlbum">
-//                 <strong>Album</strong>
-//             </div>
-//         </li>
-//         {library.map(item => (
-//             <li key={item.libKey}>
-//                 <div>
-//                     <button 
-//                         className="playButtonButton"
-//                         // onClick={this.routeToSong}
-//                     >
-//                         <FontAwesome
-//                             name="play-circle"
-//                             color='white'
-//                             size={30}
-//                             className="playButton"
-//                         />
-//                     </button>
-//                 </div>
-//                 <div className="libSong">
-//                     {item.song}
-//                 </div>
-//                 <div className="libArtist">
-//                     {item.artist}
-//                 </div>
-//                 <div className="libAlbum">
-//                     {item.album}
-//                 </div>
-//                 {/* <span className="libLink">
-//                     {item.link}
-//                 </span> */}
-//             </li>
-//         ))}
-//     </ul>
-// );
 
 export default compose(
     withRouter, 

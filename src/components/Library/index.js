@@ -34,42 +34,70 @@ class Library extends Component {
         });
     }
 
+    addMusicChange = (item) => {
+        const song = item.song;
+        const artist = item.artist;
+        const album = item.album;
+        const link = item.link;
+        const uid = this.state.authUser.uid;
+        this.props.firebase.library().push({ song, artist, album, link, uid })
+      }
+
     routeToSong = (item) => {
         console.log("item is: ", item);
         const baseUrl = '/music-page/' + item.libKey;
         this.props.history.push(baseUrl);
     }
 
+    deleteSong = (item) => {
+        const library = this.props.firebase.library();
+        console.log(item);
+        library.child(item.libKey).remove();
+    }
+
     render() {
         const library = this.state.library;
-        console.log(library);
+        console.log("Library is: ", library);
             const libraryList = library.map(item => {
                 return (
                     <li key={item.libKey}>
                         {/* <Link to={"/music-page/" + item.libKey}> Link </Link> */}
-                                    <div>
-                                        <button 
-                                            className="playButtonButton"
-                                            onClick={() => this.routeToSong(item)}
-                                        >
-                                            <FontAwesome
-                                                name="play-circle"
-                                                color='white'
-                                                size={30}
-                                                className="playButton"
-                                            />
-                                        </button>
-                                    </div>
-                                    <div className="libSong">
-                                        {item.song}
-                                    </div>
-                                    <div className="libArtist">
-                                        {item.artist}
-                                    </div>
-                                    <div className="libAlbum">
-                                        {item.album}
-                                    </div>
-                                </li>
+                        <div>
+                            <button 
+                                className="playButtonButton"
+                                onClick={() => this.routeToSong(item)}
+                            >
+                                <FontAwesome
+                                    name="play-circle"
+                                    color='white'
+                                    size={30}
+                                    className="playButton"
+                                />
+                            </button>
+                        </div>
+                        <div className="libSong">
+                            {item.song}
+                        </div>
+                        <div className="libArtist">
+                            {item.artist}
+                        </div>
+                        <div className="libAlbum">
+                            {item.album}
+                        </div>
+                        <div>
+                            <button 
+                                className="delButtonButton"
+                                onClick={() => this.deleteSong(item)}
+                            >
+                                <FontAwesome
+                                    name="trash-o"
+                                    color='white'
+                                    size={30}
+                                    className="delButton"
+                                />
+                            </button>
+                        </div>
+                    </li>
                 )
             });
 

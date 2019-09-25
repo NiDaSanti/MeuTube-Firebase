@@ -4,6 +4,8 @@ import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
 import { withAuthorization } from '../Session';
 import Library from '../Library';
+import Search from '../Search';
+import Results from '../Results';
 
 class HomePage extends Component {
   constructor(props) {
@@ -30,6 +32,7 @@ class HomePage extends Component {
   }
 
   searchLibrary = (searchString) => {
+    console.log(this.state.searchEntry);
     let library = this.state.library;
     const results = this.filterIt(library, searchString);
     this.setState({
@@ -40,19 +43,22 @@ class HomePage extends Component {
 
   render() {
     return(
-      <div className="homePage">
-        <h1>Welcome to your Dashboard, {this.state.authUser.username}!</h1>
-        {/* <div className="search">
-          <Search 
-            onSearchLibrary={this.searchLibrary}
-          /> 
-        </div> */}
-        {/* <div className="searchResults">
-          <Results results={this.state.results}/>
-        </div> */}
-        <div className="library">
-          <Library authUser={this.state.authUser} />
-        </div>
+      <div className="searchAndHome">
+        <Search onSearchLibrary={this.searchLibrary}/>
+          <div className="homePage">
+            <h1>Welcome to your Dashboard, {this.state.authUser.username}!</h1>
+            {/* <div className="search">
+              <Search 
+                onSearchLibrary={this.searchLibrary}
+              /> 
+            </div> */}
+            <div className="searchResults">
+              <Results results={this.state.results}/>
+            </div>
+            <div className="library">
+              <Library authUser={this.state.authUser} />
+            </div>
+          </div>
       </div>
     )
   }

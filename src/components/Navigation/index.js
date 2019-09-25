@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/images/logo3.png';
+import Logo from '../../assets/images/finalLogo.png';
 
 import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
-import Search from '../Search';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
@@ -29,9 +28,9 @@ const NavigationAuth = ({ authUser }) => (
       <img src={Logo} alt="MeuTube Logo"></img>
     </div>
     <ul>
-      <li>
+      {/* <li>
         <Link to={ROUTES.MUSIC_PAGE} className="a">Player</Link>
-      </li>
+      </li> */}
       <li>
         <Link to={ROUTES.LANDING} className="a">Landing</Link>
       </li>
@@ -50,7 +49,6 @@ const NavigationAuth = ({ authUser }) => (
         <SignOutButton />
       </li>  
     </ul>
-    <Search />
   </div>
 );
 

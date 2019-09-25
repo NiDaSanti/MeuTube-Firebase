@@ -1,5 +1,15 @@
 .signIn {
     padding: 10em 0;
+
+    .signInBg {
+        border: black 2px solid;
+        width: 50%;
+        margin: 0 auto;
+        padding: 5em;
+        box-shadow: 0 0 15px $smoke;
+        background-image: url('../images/audience-band-cheering-1105666.jpg');
+        background-size: contain;
+    }
     
     .signInContent {
 
@@ -30,21 +40,21 @@
         }
 
         .signInButton {
-            background-color: $smoke;
+            background-color: white;
             border: none;
             border-radius: 5px;
-            color: white;
+            color: $smoke;
             font-size: 16pt;   
             padding: 20px 10px;
             text-align: center;
             line-height: 4pt;
-            width: 15%;
-            margin: 0 42.5%;
+            width: 150px;
+            margin: 0 6em;
         }
 
         .signInButton:hover {
             opacity: 1;
-            color: white;
+            color: $smoke;
         }
 
         a {
@@ -65,4 +75,17 @@
             font-size: 14pt;
         }
     }
+
+    .pwForgetLink:link {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .signUpText {
+        color: rgba(255, 255, 255, 0.5);
+
+        .signUpLink {
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+
 }

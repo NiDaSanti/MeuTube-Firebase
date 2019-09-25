@@ -40,8 +40,6 @@ class AdminPage extends Component {
 
   render() {
     const { users, loading } = this.state;
-    console.log("library in Admin component: ", this.state.library);
-    console.log("results are: ", this.state.results)
     return (
       <div className="adminPage">
         <h1>Admin</h1>

@@ -1,6 +1,22 @@
 import React from 'react';
 //import { renderComponent } from 'recompose';
 
+class VideoDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      video: null
+    }
+  }
+  
+  componentDidUpdate(prevProps) {
+    if(this.props.video && (prevProps.video !== this.props.video) ) {
+      this.setState({video: this.props.video})
+    }
+  }
+};
+
+
 const MusicPlayer = () => ({
     render: function() {
       var videoSrc = "https://www.youtube.com/embed/" + 
@@ -19,4 +35,5 @@ const MusicPlayer = () => ({
   });
   
 console.log(MusicPlayer);
-export default MusicPlayer;
+export default (MusicPlayer) (VideoDetail)
+

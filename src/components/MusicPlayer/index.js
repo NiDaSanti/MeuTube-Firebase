@@ -43,6 +43,5 @@ class MusicPlayer extends React.Component {
       );
     }
 }
-  
-console.log(MusicPlayer);
+
 export default compose(withFirebase)(MusicPlayer);

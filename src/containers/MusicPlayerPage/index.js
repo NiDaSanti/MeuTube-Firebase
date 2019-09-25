@@ -14,4 +14,4 @@ class MusicPlayerPage extends React.Component {
   }
 }
     
-export default MusicPlayer;
+export default MusicPlayerPage;

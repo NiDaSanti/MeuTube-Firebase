@@ -7,3 +7,4 @@ export const ADMIN = '/admin';
 export const PASSWORD_FORGET = '/pw-forget';
 export const MUSIC_PAGE = '/music-page/:uid';
 export const ADD_MUSIC = '.';
+export const RESULTS = '/results-page';

@@ -34,6 +34,7 @@ class SignUpFormBase extends Component {
   onSubmit = event => {
       const { username, email, passwordOne, isAdmin } = this.state;
       const roles = {};
+      const userLibrary = [];
 
       if (isAdmin) {
         roles[ROLES.ADMIN] = ROLES.ADMIN;
@@ -50,6 +51,7 @@ class SignUpFormBase extends Component {
                 username,
                 email,
                 roles,
+                userLibrary,
               });
             })
         .then(() => {
@@ -118,7 +120,7 @@ class SignUpFormBase extends Component {
           type="password"
           placeholder="Confirm Password"
         />
-        <label className="container"> 
+        <label className="adminChkBox"> 
           Admin:
           <input
             name="isAdmin"
@@ -126,9 +128,9 @@ class SignUpFormBase extends Component {
             checked={isAdmin}
             onChange={this.onChangeCheckbox}
           />
-          <span className="checkmark"></span>
+          {/* <span className="checkmark"></span> */}
         </label>
-        <button disabled={isInvalid} type="submit">Sign Up</button>
+        <button disabled={isInvalid} type="submit" className="signUpButton">Sign Up</button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -137,8 +139,8 @@ class SignUpFormBase extends Component {
 }
 
 const SignUpLink = () => (
-  <p>
-    Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+  <p className="signUpText">
+    Don't have an account? <Link to={ROUTES.SIGN_UP} className="signUpLink">Sign Up</Link>
   </p>
 );
 

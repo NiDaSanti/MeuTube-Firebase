@@ -42,7 +42,7 @@ class Firebase {
                 this.user(authUser.uid)
                     .once('value')
                     .then(snapshot => {
-                        // console.log('snap', snapshot);
+                        console.log('snap', snapshot);
                         const dbUser = snapshot.val();
                         // console.log('dbuser', dbUser);
                         
@@ -64,11 +64,18 @@ class Firebase {
                 fallback();
             }
         });
+    
 
     // *** User API *** //
     user = uid => this.db.ref(`/users/${uid}`);
 
     users = () => this.db.ref('users');
+
+    library = () => this.db.ref('library');
+
+    libraryItem = uid => this.db.ref(`/library/${uid}`);
+
+    // link = () => this.db.ref('/users/${uid}/library/item/link');
 }
 
 export default Firebase;

@@ -1,9 +1,17 @@
 import React from 'react';
 import MusicPlayer from '../../components/MusicPlayer';
 
-React.render(
-    <MusicPlayer video="mYFaghHyMKc" autoplay="0" rel="0" modest="1" />,
-    document.body 
-  );
+class MusicPlayerPage extends React.Component {
+  constructor(props) {
+    super(props);
     
-export default MusicPlayer;
+  } 
+  
+  render(){
+    return(
+      <MusicPlayer />
+    )
+  }
+}
+    
+export default MusicPlayerPage;

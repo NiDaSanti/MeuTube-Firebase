@@ -12,7 +12,8 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import Admin from '../../containers/Admin';
-import MusicPlayerPage from '../MusicPlayer'
+import MusicPlayerPage from '../MusicPlayer';
+import ResultsPage from '../../containers/SearchResults';
 
 
 
@@ -21,7 +22,7 @@ import { withAuthentication } from '../Session';
 
 const App = () => (
     <Router>
-      <div>
+      <div className="whole-page">
         <Navigation />
 
         <Route exact path={ROUTES.LANDING} component={LandingPage} />
@@ -32,6 +33,9 @@ const App = () => (
         <Route path={ROUTES.ACCOUNT} component={AccountPage} />
         <Route path={ROUTES.ADMIN} component={Admin} />
         <Route path={ROUTES.MUSIC_PAGE} component={MusicPlayerPage} />
+        <Route path={ROUTES.RESULTS} component={ResultsPage} />
+        {/* <Route path={ROUTES.LIBRARYITEM} component={MusicPlayerPage} /> */}
+
       </div>
     </Router>
 );

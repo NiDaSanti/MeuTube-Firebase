@@ -1,8 +1,17 @@
 .landing {
-    font-size: 100pt;
+    font-size: 8em;
     text-align: center;
-    padding: 2em 0;
     font-weight: bolder;
     color: $smoke;
     text-shadow: 2px 2px black;
+    margin: 2em 0 0 0;
+
+    // .addMusic{
+    //     padding-top: 10em;
+
+    //     h2{
+    //         color: $smoke;
+    //         text-align: center;
+    //     }
+    // }
 }

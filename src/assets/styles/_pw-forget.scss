@@ -1,0 +1,33 @@
+.pwForgetPage {
+    color: $smoke;
+    margin: 2% 5%;
+    width: 90%;
+
+    form {
+        margin: 10px;
+        font-size: 14pt;
+
+        input {
+            line-height: 20pt;
+            width: 50%;
+            border-radius: 5px;
+            margin: 20px 20px 40px 20px;
+        }
+
+        input:focus + button {
+            background-color: white;
+            opacity: 1;
+            color: $smoke;
+        }
+
+        button:hover {
+            background-color: white;
+        }
+    }
+
+    p a:link {
+        color: white;
+    }
+
+    
+}

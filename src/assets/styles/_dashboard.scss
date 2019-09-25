@@ -1,51 +1,75 @@
 @import url('https://fonts.googleapis.com/css?family=Jura&display=swap');
 
-body {
-    height: 30em;
-    display: grid;
-    //grid-template-rows: auto auto auto;
-    margin-top: 20rem;
-    background-image: linear-gradient($orange, $yellow);
-    // overflow: hidden;
+.whole-page {
+    width: 100%;
 }
 
-.this-random-header {
-	position: absolute;
-	background-color: #343434;
-	padding: 25px;
-	margin-left: 25%;
-    margin-right: 25%;
-    //margin-top: 7em;
-	//border-radius: 155px;
-	box-shadow: 6px 6px 27px;
-	animation-name: tryThisAnimation;
-	animation-duration: 5s;
-	animation-iteration-count: infinite;
-	z-index: -1;
-} 
+.searchAndHome {
+
+    .searchBar {
+        margin: 80px auto 0 auto;
+        width: 50em;
+
+        .searchInput {
+            width: 50%;
+        }
+    }
+}
+
+.homePage {
+    margin-top: 20px;
+
+    h1 {
+        color: $smoke;
+        text-align: center;
+        padding: 1em 0;
+    }
+
+    .addMusic{
+        h2{
+            color: $smoke;
+            text-align: center;
+        }
+    }
+}
+
+// .this-random-header {
+//     position: absolute;    
+//     background-color: #343434;
+// 	padding: 25px;
+// 	margin-left: 25%;
+//     margin-right: 25%;
+//     //margin-top: 7em;
+// 	//border-radius: 155px;
+// 	box-shadow: 6px 6px 27px;
+// 	animation-name: tryThisAnimation;
+// 	animation-duration: 5s;
+// 	animation-iteration-count: infinite;
+// 	z-index: -1;
+// } 
 // This is trials
-@keyframes tryThisAnimation {
-    0%   {background-color: $orange;;}
-    20%  {background-color: #343434;}
-    40%  {background-color: $orange;}
-    60%  {background-color: #343434;}
-    80% {background-color: $orange;}
-    100% {background-color: #343434;}
-  }
+// @keyframes tryThisAnimation {
+//     0%   {background-color: $orange;;}
+//     20%  {background-color: #343434;}
+//     40%  {background-color: $orange;}
+//     60%  {background-color: #343434;}
+//     80% {background-color: $orange;}
+//     100% {background-color: #343434;}
+//   }
   
-  .play-with-this {
-      font-family: 'Jura', sans-serif;
-      font-size: 40px;
-      color: white;
-      text-align: center;
-      margin-top: 1em;
-  }
+//   .play-with-this {
+//       font-family: 'Jura', sans-serif;
+//       font-size: 40px;
+//       color: white;
+//       text-align: center;
+//       margin-top: 1em;
+//   }
   
-  .middle-for-now {
-      font-family: 'Jura', sans-serif;
-      font-size: 25px;
-      color: white;
-      text-align: center;
-      margin-top: 3em;
-      margin-bottom: 3em;
-  } 
+//   .middle-for-now {
+//       font-family: 'Jura', sans-serif;
+//       font-size: 25px;
+//       color: white;
+//       text-align: center;
+//       margin-top: 3em;
+//       margin-bottom: 3em;
+//   } 

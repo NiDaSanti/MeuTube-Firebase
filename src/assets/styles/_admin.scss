@@ -1,18 +1,35 @@
 .adminPage {
     color: $smoke;
-    padding-left: 8%;
-    margin-top: -12em;
-
-    ul {
-        list-style-type: none;
-        font-size: 16pt;
-    }
+    margin: 10em auto;
+    width: 90%;
 
     hr {
         border: 1px solid $smoke;
     }
 
-    .results {
-        height: 150px;
+    .userList {
+        width: 90%;
+
+        ul {
+            list-style-type: none;
+            font-size: 16pt;
+        }
+
+        li {
+            display: block;
+            padding: 10px;
+            margin: 10px;
+
+            hr {
+                width: 50%;
+            }
+        }
+
+        li:last-of-type {
+            hr {
+                display: none;
+            }
+        }
+
     }
 }

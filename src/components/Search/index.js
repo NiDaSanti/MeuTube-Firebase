@@ -1,33 +1,46 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom';
+import { compose } from 'recompose';
+import { withFirebase } from '../Firebase';
 import { FontAwesome } from 'react-web-vector-icons';
 
-class Search extends React.Component {
+class Search extends Component {
     constructor(props){
         super(props);
         this.state = {
+            authUser: JSON.parse(localStorage.getItem('authUser')),
             searchEntry: "",
-            results: [],
+            library: [],
+            libKey: "",
         }
     }
 
-    handleChange = (e) => {
-        this.setState({
-            searchEntry: e.target.value
+    componentDidMount() {
+        this.props.firebase.library().orderByChild('uid').equalTo(this.state.authUser.uid).on('value', snapshot => {
+            const libraryObject = snapshot.val();
+            if (libraryObject === null) {
+                return
+            } else {
+            const libraryList = Object.keys(libraryObject).map(key => ({
+                ...libraryObject[key],
+                libKey: key,
+            }));
+            this.setState({
+                library: libraryList,
+            });}
         });
     }
 
-    searchUserLibrary = () => {
-        let searchEntry = this.state.searchEntry;
-        const searchString = searchEntry;
-        this.props.onSearchLibrary(searchString)
-        this.setState({
-            searchEntry: "",
-        });
-    }
+    
+
+    // routeToResults = () => {
+    //     const resultsUrl = '/results-page/';
+    //     this.props.history.push(resultsUrl);
+    // } 
 
     render() {
         // const isResults = this.state.results.length > 0
-
+        let searchEntry = this.state.searchEntry;
         return(
             <div className="searchBar">
                 <input 
@@ -36,9 +49,13 @@ class Search extends React.Component {
                     value={this.state.searchEntry}
                     onChange={this.handleChange}
                     placeholder="Search your music..."
+                    className="searchInput"
                 />
-                <button onClick={this.searchUserLibrary} className="searchButtonButton">
-                <FontAwesome
+                <button 
+                    onClick={() => this.routeToResults(searchEntry)} 
+                    className="searchButtonButton"
+                >
+                    <FontAwesome
                     name='search'
                     color='white'
                     size={25}
@@ -53,4 +70,7 @@ class Search extends React.Component {
 
 }
 
-export default Search;
+export default compose(
+    withRouter,
+    withFirebase)(Search)
+;
